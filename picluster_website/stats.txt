@@ -1,0 +1,9 @@
+
+                           Node |  CPUs |    Jobs |    Sec/Job | Node Time Sec
+------------------------------------------------------------------------------
+ 192.168.1.103 (GiacomoPC)      |     4 |      10 |     22.076 |       220.762
+
+Total job time: 220.762 sec
+
+Computation real time: 65.82 sec
+Total Rolls: 100000000
