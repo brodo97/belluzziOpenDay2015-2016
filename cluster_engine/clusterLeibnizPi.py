@@ -3,7 +3,7 @@ from decimal import getcontext, Decimal
 
 # argv: [how many nodes][how many tests][how many rolls]
 
-getcontext().prec = 42
+getcontext().prec = 40
 
 global ip_master
 global ip_nodes_raw
@@ -13,19 +13,17 @@ ip_nodes_raw = ["192.168.1.104"]
 
 realPi = "3.14159265358979323846264338327950288419716"
 
-def drop (n):
-    cross = 0
+def leibniz (start, stop):
+    from decimal import getcontext, Decimal
+    getcontext().prec = 40
 
-    for i in xrange(n):
-        # x needle position
-        x = random.random()*1000000
-        # needle cos rotation degree
-        d = math.cos(math.radians(random.random()*90))*50
+    result = Decimal(0.0)
+    #result = 0.0
+    for k in xrange(start, stop):
+        result += Decimal(((-1.0)**(k))/(2*k+1.0))
+        #result += ((-1.0)**(k))/(2*k+1.0)
 
-        if int((x-d)/100) != int((x+d)/100):
-            cross += 1
-        
-    return cross
+    return result
 
 def getDigit (pi):
     pi = str(pi)[2:]
@@ -41,7 +39,7 @@ def run (nNodes, nTimes, nThrows):
         ip_nodes.append(ip_nodes_raw[i])
 
     cluster = dispy.JobCluster(
-        drop,
+        leibniz,
         nodes = ip_nodes,
         ip_addr = ip_master
     )
@@ -49,16 +47,17 @@ def run (nNodes, nTimes, nThrows):
     jobs = []
 
     for i in range(nTimes):
-        jobs.append(cluster.submit(nThrows))
+        jobs.append(cluster.submit(nThrows*i, nThrows*(i+1)))
 
     cluster.wait()
     cluster.stats()
 
-    prob = 0
+    raw = Decimal(0.0)
+    #raw = 0.0
     for j in jobs:
-        prob += j.result    
+        raw += j.result    
 
-    pi = Decimal(2.0*int(sys.argv[2])*int(sys.argv[3]))/prob
+    pi = 4*raw
 
     return pi 
 
@@ -72,7 +71,7 @@ if __name__ == "__main__":
 
     print "Computation real time: " + str(tEnd)[:5] + " sec\n"
 
-    print "Total Rolls: " + str(int(sys.argv[2]) * int(sys.argv[3]))
+    print "Total loops: " + str(int(sys.argv[2]) * int(sys.argv[3]))
 
     print "Calculated PI: " + str(calculatedPi)
     print "Real PI:       " + str(realPi)
