@@ -1,9 +1,12 @@
 
                            Node |  CPUs |    Jobs |    Sec/Job | Node Time Sec
 ------------------------------------------------------------------------------
- 192.168.1.103 (GiacomoPC)      |     4 |      10 |     22.076 |       220.762
+ 192.168.1.101 (raspberrypi)    |     4 |      24 |      2.968 |        71.222
+ 192.168.1.103 (raspberrypi)    |     4 |      25 |      2.901 |        72.515
+ 192.168.1.104 (raspberrypi)    |     4 |      25 |      2.907 |        72.665
+ 192.168.1.105 (raspberrypi)    |     4 |      26 |      2.891 |        75.175
 
-Total job time: 220.762 sec
+Total job time: 291.578 sec
 
-Computation real time: 65.82 sec
-Total Rolls: 100000000
+Computation real time: 21.07 sec
+Total Rolls: 10000000

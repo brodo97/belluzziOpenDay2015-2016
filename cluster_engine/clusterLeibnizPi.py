@@ -8,8 +8,12 @@ getcontext().prec = 40
 global ip_master
 global ip_nodes_raw
 
-ip_master = "192.168.1.104"
-ip_nodes_raw = ["192.168.1.104"]
+ip_master = ""
+ip_nodes_raw = [""]
+
+if ip_master == "" or len(ip_nodes_raw) == 0:
+    print "First set ip_master and nodes' ip"
+    exit()
 
 realPi = "3.14159265358979323846264338327950288419716"
 

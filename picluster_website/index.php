@@ -2,21 +2,23 @@
 <html>
 	<head>
 		<title>Lancio dadi</title>
-
+		<link rel="icon" type="image/icon" href="favicon-bar-chart.ico">
+        <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+        
 		<!-- amCharts javascript sources -->
-		<script src="http://www.amcharts.com/lib/3/amcharts.js" type="text/javascript"></script>
+		<script src="json/amcharts.js" type="text/javascript"></script>
 		<script src="http://www.amcharts.com/lib/3/serial.js" type="text/javascript"></script>
 		<script src="http://www.amcharts.com/lib/3/themes/black.js" type="text/javascript"></script>
 		<script src="json/dataloader.min.js"></script>
-		<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-		<link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+		
 		<!-- amCharts javascript code -->
 		<script type="text/javascript">
 			AmCharts.makeChart("chartdiv",
 				{
 					"type": "serial",
 					"dataLoader": {
-       				"url": "export.csv",
+       				"url": "exports.csv",
         				"format": "csv",
         				"delimiter": ",",
         				"useColumnNames": true
@@ -124,7 +126,7 @@
 
 			// formatting data:
 			$total_rolls = number_format($total_rolls, 0, '', '\'');
-			$percentage = (floatval($total_real_time)*100)/floatval($total_job_time);
+			$percentage = (floatval($total_job_time-$total_real_time)*100)/floatval($total_job_time);
 			$percentage = number_format($percentage, 1);
 
 			// creating table:

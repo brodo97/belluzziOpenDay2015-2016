@@ -5,8 +5,12 @@ import dispy, time, sys
 global ip_master
 global ip_nodes
 
-ip_master = "192.168.1.106"
-ip_nodes = ["192.168.1.106"]
+ip_master = ""
+ip_nodes = [""]
+
+if ip_master == "" or len(ip_nodes) == 0:
+    print "First set ip_master and nodes' ip"
+    exit()
 
 def crackPassword (startPsw, stopPsw):
     import requests
