@@ -96,4 +96,4 @@ if __name__ == "__main__":
 
     print "Total Rolls: " + str(int(sys.argv[2]) * int(sys.argv[3]))
 
-    csv_writer(result, "export.csv")
+    csv_writer(result, "exports.csv")

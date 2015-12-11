@@ -1,12 +1,21 @@
 import ftplib
 import sys
 
-ftp = ftplib.FTP('ftp.picluster.altervista.org','picluster', sys.argv[1])
+psw = ""
 
-for i in range(2, len(sys.argv)):
-    fResult = open(sys.argv[i],'rb')    
-    ftp.storbinary("STOR " + sys.argv[i], fResult) 
-    fResult.close()
+if psw == "":
+	print "Password NOT set!"
+	exit()
+
+ftp = ftplib.FTP('ftp.picluster.altervista.org','picluster', psw)
+
+fResult = open("exports.csv",'rb')    
+ftp.storbinary("STOR " + "exports.csv", fResult) 
+fResult.close()
+
+fResult = open("stats.txt",'rb')    
+ftp.storbinary("STOR " + "stats.txt", fResult) 
+fResult.close()
 
 ftp.quit()
 
