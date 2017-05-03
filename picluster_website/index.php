@@ -1,147 +1,103 @@
-<!DOCTYPE html>
+<?php
+global $color, $footerText;
+$color = "indigo";
+$footerText = "white-text";
+?>
 <html>
-	<head>
-		<title>Lancio dadi</title>
-		<link rel="icon" type="image/icon" href="favicon-bar-chart.ico">
-        <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-		<link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
-        
-		<!-- amCharts javascript sources -->
-		<script src="json/amcharts.js" type="text/javascript"></script>
-		<script src="http://www.amcharts.com/lib/3/serial.js" type="text/javascript"></script>
-		<script src="http://www.amcharts.com/lib/3/themes/black.js" type="text/javascript"></script>
-		<script src="json/dataloader.min.js"></script>
-		
-		<!-- amCharts javascript code -->
-		<script type="text/javascript">
-			AmCharts.makeChart("chartdiv",
-				{
-					"type": "serial",
-					"dataLoader": {
-       				"url": "exports.csv",
-        				"format": "csv",
-        				"delimiter": ",",
-        				"useColumnNames": true
-     				},
-     				"colors": ["#0066ff"],
-     				"title": "Facce",
-					"categoryField": "somma",
-					"dataDateFormat": "",
-					"angle": 40,
-					"depth3D": 20,
-					"startDuration": 1,
-					"fontFamily": "Roboto",
-					"fontSize": 20,
-					"theme": "black",
-					"categoryAxis": {
-						"gridPosition": "start"
-					},
-					"trendLines": [],
-					"graphs": [
-						{
-							"balloonText": "Somma ottenuta [[category]]: [[value]]",
-							"bulletBorderThickness": 0,
-							"customMarker": "",
-							"fillAlphas": 1,
-							"id": "AmGraph-1",
-							"title": "Frequenza",
-							"type": "column",
-							"valueField": "numero"
-						}
-					],
-					"guides": [],
-					"valueAxes": [
-						{
-							"id": "ValueAxis-1",
-							"title": ""
-						}
-					],
-					"allLabels": [],
-					"balloon": {},
-					"legend": {
-						"useGraphSettings": true
-					},
-					"titles": [
-						{
-							"id": "Title-1",
-							"size": 30,
-							"text": "Lancio di due dadi e somma delle facce"
-						}
-					],
-				}
-			);
-		</script>
-        <style>
-        	body{
-            	font-family: 'Roboto', sans-serif;
-            	background-color: #222222;
-            }
+<head>
+	<title>Cluster</title>
+	<!--Import Google Icon Font-->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-            h3 {
-            	font-family: 'Ubuntu', sans-serif;
-            	color: #bfbfbf;
-            }
+	<!--Import materialize.css-->
+	<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
 
-            p {
-            	font-family: 'Roboto', sans-serif;
-            	color: #bfbfbf;
-            	font-size: 25px;
-            }
+	<!--Ottimizzato per la navigazione da mobile-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-            table {
-            	margin-top: -30px;
-            }
-        </style>
-	</head>
-	<body >
-		<div id="chartdiv" style="width: 100%; height: 600px; background-color: #222222;"></div>
+	<meta charset="UTF-16">
 
-		<?php
-
-			// reading stats:
-
-			$total_job_time = "No stats";
-			$total_real_time = "No stats";
-			$total_rolls = "No stats";
-
-			if (file_exists("stats.txt")) {
-				$file = fopen("stats.txt", "r");
-				
-				while (!feof($file)) {				
-					$line = fgets($file);
-
-					if (strpos($line, "Total job time:") !== false) {
-						$total_job_time = substr($line, 16);
-					}
-					if (strpos($line, "Computation real time:") !== false) {
-						$total_real_time = substr($line, 23);
-					}
-					if (strpos($line, "Total Rolls:") !== false) {
-						$total_rolls = substr($line, 13);
-					}
-				}
-
-				fclose($file);				
-			}
-
-			// formatting data:
-			$total_rolls = number_format($total_rolls, 0, '', '\'');
-			$percentage = (floatval($total_job_time-$total_real_time)*100)/floatval($total_job_time);
-			$percentage = number_format($percentage, 1);
-
-			// creating table:
-			echo "
-				<table width='100%'>
-					<tr>
-						<td><p>Lanci effettuati: $total_rolls</p></td>
-						<td><p>Tempo esecuzione: $total_real_time</p></td>
-						<td><p>Tempo macchina: $total_job_time</p></td>
-						<td><p>Risparmio: $percentage%</p></td>
-						<td><a href='stats.txt' target='_blank' style='color: #bfbfbf;font-size: 25px'>Statistiche complete</a></td>
-					</tr>
-				</table>";
-		?>		
-        <hr>
-        <h3>Brunelli Mattia - Pinardi Giacomo - Visalli Simone</h3>        
-	</body>
+	<!--Blocco dello zoom su mobile-->
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+	<style media="screen">
+	.tabs .indicator{
+		background-color: #F0F;
+	}
+	</style>
+</head>
+<body class="grey lighten-2">
+	<main>
+		<div class="container">
+			<div class="row">
+				<div class="col s12 m12 l12">
+					<div class="section">
+						<h1 class="center">Pi Cluster</h1>
+						<p class="flow-text center">A computer cluster consists of a set of connected computers that work together so that, in many respects, they can be viewed as a single system. A computer clusters have each node set to perform the same task, controlled and scheduled by <a href="http://dispy.sourceforge.net/" target="_blank" title="Dispy">software</a>.</p>
+					</div>
+					<div class="section">
+						<div class="card indigo">
+							<div class="card-content">
+								<span class="card-title white-text">Utilizzi</span>
+							</div>
+							<div class="card-tabs">
+								<ul class="tabs tabs-fixed-width transparent">
+									<li class="tab"><a class="active white-text" href="#statistica">Statistics</a></li>
+									<li class="tab"><a class="white-text" href="#matematica">Mathematics</a></li>
+									<li class="tab"><a class="white-text" href="#sicurezza">Security</a></li>
+								</ul>
+							</div>
+							<div class="card-content white">
+								<div id="statistica" class="row">
+									<div class="col s12 m6 l4">
+										<div class="card blue lighten-2">
+											<div class="card-content center black-text">
+												<span class="card-title">Two dice sum</span>
+												<p>Massive sums of two dices'<br>face</p>
+											</div>
+											<div class="card-action blue lighten-4">
+												<a class="black-text" href="dice" title="Apri pagina">Go to the page</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div id="matematica" class="row">
+									<div class="col s12 m6 l4">
+										<div class="card red lighten-2">
+											<div class="card-content center black-text">
+												<span class="card-title">3n+1</span>
+												<p>Collatz, Syracuse or Ulam conjecture</p>
+											</div>
+											<div class="card-action red lighten-4">
+												<a class="black-text" href="collatz" title="Apri pagina">Go to the page</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div id="sicurezza" class="row">
+									<div class="col s12 m6 l4">
+										<div class="card green lighten-2">
+											<div class="card-content center black-text">
+												<span class="card-title">Brute-force</span>
+												<p>Brute-force of a password for a login</p>
+											</div>
+											<div class="card-action green lighten-4">
+												<a class="black-text" href="secure" title="Apri pagina">Go to the page</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<a href="easter.php" class="right"><img src="img/easter.png" style="width:50px"></a>
+			</div>
+		</div>
+	</main>
+	<?php require_once 'phpMod/footer.php' ?>
+	<!--Import jQuery before materialize.js-->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/materialize.min.js"></script>
+	<script type="text/javascript" src="js/init.js"></script>
+</body>
 </html>

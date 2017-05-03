@@ -1,21 +1,14 @@
 import dispy, random, time, sys
-from decimal import getcontext, Decimal
 
 # argv: [how many nodes][how many tests][how many rolls]
-
-getcontext().prec = 42
 
 global ip_master
 global ip_nodes_raw
 
-ip_master = ""
-ip_nodes_raw = [""]
+ip_master = "192.168.1.104"
+ip_nodes_raw = ["192.168.1.104"]
 
-if ip_master == "" or len(ip_nodes_raw) == 0:
-    print "First set ip_master and nodes' ip"
-    exit()
-
-realPi = "3.14159265358979323846264338327950288419716"
+realPi = 3.14159265358
 
 def drop (n):
     cross = 0
@@ -30,13 +23,6 @@ def drop (n):
             cross += 1
         
     return cross
-
-def getDigit (pi):
-    pi = str(pi)[2:]
-    rPi = realPi[2:]
-    for i in xrange(len(realPi)):
-        if pi[i] != rPi[i]:
-            return i
 
 def run (nNodes, nTimes, nThrows):
     ip_nodes = []
@@ -62,7 +48,7 @@ def run (nNodes, nTimes, nThrows):
     for j in jobs:
         prob += j.result    
 
-    pi = Decimal(2.0*int(sys.argv[2])*int(sys.argv[3]))/prob
+    pi = (2.0*int(sys.argv[2])*int(sys.argv[3]))/prob
 
     return pi 
 
@@ -80,4 +66,4 @@ if __name__ == "__main__":
 
     print "Calculated PI: " + str(calculatedPi)
     print "Real PI:       " + str(realPi)
-    print "Digit:         " + str(getDigit(calculatedPi)) + "\n"
+    print "Difference:    " + str(abs(realPi-calculatedPi)) + "\n"

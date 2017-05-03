@@ -2,36 +2,26 @@ import dispy, time, sys
 
 # argv: [password length]
 
-global ip_master
-global ip_nodes
-
-ip_master = ""
-ip_nodes = [""]
-
-if ip_master == "" or len(ip_nodes) == 0:
-    print "First set ip_master and nodes' ip"
-    exit()
-
 def crackPassword (startPsw, stopPsw):
     import requests
     for i in xrange(startPsw, stopPsw):
-        if requests.post("http://picluster.altervista.org/secure/", data = {"psw":i}).status_code == 200:
+        if requests.post("http://127.0.0.1/belluzziOpenDay2015-2016/picluster_website/secure/", data = {"pwd":i}).status_code == 200:
             return i
     return None
 
-def run (pswLength, numJobs):
-    cluster = dispy.JobCluster(
-        crackPassword,
-        nodes = ip_nodes,
-        ip_addr = ip_master
-    )
+def run (numJobs, pswLength):
+    cluster = dispy.JobCluster(crackPassword)
 
     unit = int((10**pswLength)/numJobs)+1
     jobs = []
 
-    for i in xrange(numJobs):
-        print str(i*unit) + " - " + str((i+1)*unit)
+    jobs.append(cluster.submit(1,unit))
+    print 1,"-",unit
+    for i in xrange(1,numJobs-1):
+        print i*unit,"-",(i+1)*unit
         jobs.append(cluster.submit(i*unit,(i+1)*unit))
+    jobs.append(cluster.submit((i+1)*unit,10**pswLength))
+    print (i+1)*unit,"-",10**pswLength
 
     cluster.wait()
     cluster.stats()

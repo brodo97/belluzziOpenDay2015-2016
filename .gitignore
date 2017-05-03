@@ -1,3 +1,4 @@
-/grafica-cluster.pdf
-/grafica-cluster.png
-/LEGO_case/*
+/cluster_engine/test.py
+/cluster_engine/psw.txt
+/cluster_engine/collatz/*
+/cluster_engine/dice/*

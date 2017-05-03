@@ -1,0 +1,54 @@
+.auth-section{
+  margin-bottom: 100px;
+}
+.auth-box-header{
+  position: absolute;
+  height:240px;
+  left:0;
+  top:0;
+  right:0;
+  z-index: 0;
+  background: rgba(56, 142, 60, 1);
+  background: -webkit-linear-gradient(right, rgba(56, 142, 60, 1), #4caf50);
+  background: -o-linear-gradient(right, rgba(56, 142, 60, 1), #4caf50);
+  background: linear-gradient(to left, rgba(56, 142, 60, 1), #4caf50);
+}
+.auth-zone .signup-invite{
+  padding:15px;
+  text-align:center;
+  color:#555;
+  font-size: 14px;
+}
+.auth-brand-zone{
+  margin-bottom:40px;
+  margin-top:45px;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+.auth-box .signup-invite{
+  margin-top:15px;
+}
+.auth-box{
+  padding-top: 50px!important;
+  padding-bottom: 50px!important;
+  z-index: 2;
+  display: block;
+  position: relative;
+  background-color:rgb(255,255,255);
+}
+.auth-box h1.settings{
+  text-align: center;
+}
+
+.auth-box h3 .material-icons ,
+.auth-box h2 .material-icons ,
+.auth-box h1 .material-icons {
+  vertical-align: -5px;
+}
+.auth-box h1,
+.auth-box h2,
+.auth-box h3{
+  font-size: 20px;
+  margin-top:0px;
+}
