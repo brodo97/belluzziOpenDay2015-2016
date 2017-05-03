@@ -2,3 +2,7 @@
 /cluster_engine/psw.txt
 /cluster_engine/collatz/*
 /cluster_engine/dice/*
+/picluster_website/dice/export.txt
+/picluster_website/collatz/export.txt
+/picluster_website/dice/stats.txt
+/picluster_website/collatz/stats.txt
