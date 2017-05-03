@@ -5,7 +5,7 @@ import dispy, time, sys
 def crackPassword (startPsw, stopPsw):
     import requests
     for i in xrange(startPsw, stopPsw):
-        if requests.post("http://127.0.0.1/belluzziOpenDay2015-2016/picluster_website/secure/", data = {"pwd":i}).status_code == 200:
+        if requests.post("http://picluster.altervista.org/secure/", data = {"pwd":i}).status_code == 200:
             return i
     return None
 
