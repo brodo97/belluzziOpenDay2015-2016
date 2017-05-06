@@ -20,8 +20,7 @@ if ($handle) {
   while (($line = fgets($handle)) !== false) {
     $sourceCollatz = $sourceCollatz.$line;
   }
-  fclose($handle)
-  
+  fclose($handle);
 } else {
   echo "Errore";
 }
