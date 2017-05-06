@@ -63,10 +63,6 @@ $geshi = new GeSHi($source, "python");
       ['Num. of iterations', 'Frequency'],
       <?php
       $handle = fopen("export.txt", "r");
-      if (($line = fgets($handle)) !== false) {
-        $strInfo = $line;
-        $info = explode(",",$strInfo);
-      }
       if ($handle) {
         while (($line = fgets($handle)) !== false) {
           echo $line;
@@ -83,16 +79,6 @@ $geshi = new GeSHi($source, "python");
 
   function draw(){
     chart.draw(data, options);
-  }
-  </script>
-
-  <script type="text/javascript">
-  function check() {
-    if (document.getElementById("from").value>=document.getElementById("to").value) {
-      alert("Inserire dati validi");
-    }else{
-      document.getElementById("newTest").submit();
-    }
   }
   </script>
 </head>

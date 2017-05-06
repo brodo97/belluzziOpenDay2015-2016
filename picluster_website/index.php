@@ -37,7 +37,7 @@ $footerText = "white-text";
 					<div class="section">
 						<div class="card indigo">
 							<div class="card-content">
-								<span class="card-title white-text">Utilizzi</span>
+								<span class="card-title white-text">Usages</span>
 							</div>
 							<div class="card-tabs">
 								<ul class="tabs tabs-fixed-width transparent">

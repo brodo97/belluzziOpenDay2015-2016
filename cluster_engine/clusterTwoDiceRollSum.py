@@ -2,7 +2,6 @@ import dispy
 import random
 import time
 import sys
-import ftplib
 
 # argv: [how many tests][how many rolls]
 
@@ -42,7 +41,7 @@ def writer(res, path):
         fileWrite.close()
 
 def run (nTimes, nThrows):
-    
+
     cluster = dispy.JobCluster(twoDiceRollSum)
 
     jobs = []

@@ -11,6 +11,8 @@ if (isset($_POST["pwd"]) && $_POST["pwd"] != "") {
     session_start();
     $_SESSION["check"] = true;
     header("location: in.php");
+  }else {
+    header("HTTP/1.1 401 Unauthorized", true, 401);
   }
 }
 
