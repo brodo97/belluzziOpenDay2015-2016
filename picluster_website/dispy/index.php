@@ -52,8 +52,8 @@ $geshiCollatz = new GeSHi($sourceCollatz, "python");
       <!--Grafico-->
       <div class="section">
         <h1>The Core: Dispy</h1>
-        <p class="flow-text">The Collatz conjecture, also known as the 3n+1 conjecture. The conjecture can be summarized as follows. Take any positive integer n. If n is even, divide it by 2 to get n/2. If n is odd, multiply it by 3 and add 1 to obtain 3n+1. The conjecture is that no matter what number you start with, you will always eventually reach 1.</p>
-        <p class="flow-text">Paul Erdős said about the Collatz conjecture: "Mathematics may not be ready for such problems."</p>
+        <p class="flow-text"></p>
+        <p class="flow-text"></p>
       </div>
 
       <!--Esempio codice-->
