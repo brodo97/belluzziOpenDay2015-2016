@@ -32,7 +32,7 @@ $footerText = "white-text";
 				<div class="col s12 m12 l12">
 					<div class="section">
 						<h1 class="center">Pi Cluster</h1>
-						<p class="flow-text center">A computer cluster consists of a set of connected computers that work together so that, in many respects, they can be viewed as a single system. A computer clusters have each node set to perform the same task, controlled and scheduled by <a href="http://dispy.sourceforge.net/" target="_blank" title="Dispy">software</a>.</p>
+						<p class="flow-text center">A computer cluster consists of a set of connected computers that work together so that, in many respects, they can be viewed as a single system. A computer clusters have each node set to perform the same task, controlled and scheduled by <a href="dispy" title="dispy">software</a>.</p>
 					</div>
 					<div class="section">
 						<div class="card indigo">
@@ -55,7 +55,7 @@ $footerText = "white-text";
 												<p>Massive sums of two dices'<br>face</p>
 											</div>
 											<div class="card-action blue lighten-4">
-												<a class="black-text" href="dice" title="Apri pagina">Go to the page</a>
+												<a class="black-text" href="dice" title="Apri pagina">Open</a>
 											</div>
 										</div>
 									</div>
@@ -68,7 +68,31 @@ $footerText = "white-text";
 												<p>Collatz, Syracuse or Ulam conjecture</p>
 											</div>
 											<div class="card-action red lighten-4">
-												<a class="black-text" href="collatz" title="Apri pagina">Go to the page</a>
+												<a class="black-text" href="collatz" title="Apri pagina">Open</a>
+											</div>
+										</div>
+									</div>
+
+									<div class="col s12 m6 l4">
+										<div class="card orange lighten-2">
+											<div class="card-content center black-text">
+												<span class="card-title"><b>&pi;</b>L</span>
+												<p>Calculate <b>&pi;</b> using Gottfried Leibniz's formula</p>
+											</div>
+											<div class="card-action orange lighten-4">
+												<a class="black-text" href="pi/index.php#leibniz" title="Apri pagina">Open</a>
+											</div>
+										</div>
+									</div>
+
+									<div class="col s12 m6 l4">
+										<div class="card amber lighten-2">
+											<div class="card-content center black-text">
+												<span class="card-title"><b>&pi;</b>B</span>
+												<p>Calculate <b>&pi;</b> using Buffon's needle problem</p>
+											</div>
+											<div class="card-action amber lighten-4">
+												<a class="black-text" href="pi/index.php#buffon" title="Apri pagina">Open</a>
 											</div>
 										</div>
 									</div>
@@ -81,7 +105,19 @@ $footerText = "white-text";
 												<p>Brute-force of a password for a login</p>
 											</div>
 											<div class="card-action green lighten-4">
-												<a class="black-text" href="secure" title="Apri pagina">Go to the page</a>
+												<a class="black-text" href="secure" title="Apri pagina">Open</a>
+											</div>
+										</div>
+									</div>
+
+									<div class="col s12 m6 l4">
+										<div class="card light-green lighten-2">
+											<div class="card-content center black-text">
+												<span class="card-title">Hash</span>
+												<p>Brute-force hash function (Reverse hash function)</p>
+											</div>
+											<div class="card-action light-green lighten-4">
+												<a class="black-text" href="hash" title="Apri pagina">Open</a>
 											</div>
 										</div>
 									</div>

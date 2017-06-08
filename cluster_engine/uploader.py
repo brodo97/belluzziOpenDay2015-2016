@@ -10,14 +10,19 @@ if psw == "":
 
 ftp = ftplib.FTP('ftp.picluster.altervista.org','picluster', psw)
 
-fResult = open(folder + "/export.txt",'rb')
-ftp.cwd(folder)    
-ftp.storbinary("STOR " + "export.txt", fResult) 
-fResult.close()
-
-fResult = open(folder + "/stats.txt",'rb')    
-ftp.storbinary("STOR " + "stats.txt", fResult) 
-fResult.close()
+try:
+	fResult = open(folder + "/export.txt",'rb')
+	ftp.cwd(folder)
+	ftp.storbinary("STOR " + "export.txt", fResult)
+	fResult.close()
+except Exception as e:
+	pass
+try:
+	fResult = open(folder + "/stats.txt",'rb')
+	ftp.storbinary("STOR " + "stats.txt", fResult)
+	fResult.close()
+except Exception as e:
+	pass
 
 ftp.quit()
 

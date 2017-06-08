@@ -125,7 +125,7 @@ $geshi = new GeSHi($source, "python");
         <div class="card">
           <div class="card-content">
             <h4 class="card-title">Description</h4>
-            <p><a href="../dispy">Dispy </a>will assign to each node a range of numbers to work with.</p><br>
+            <p><a href="../dispy">dispy </a>will assign to each node a range of numbers to work with.</p><br>
             <p>Each node, for each number of the range, will calculate the number of iterations to reach 1. <a href="#example" onclick="document.getElementById('example').click()">An example here</a></p><br>
             <p>The graph shows the number of iterations (X) and the frequency of each of them (Y).</p>
           </div>

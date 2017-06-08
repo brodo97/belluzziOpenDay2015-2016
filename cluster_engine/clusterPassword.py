@@ -1,6 +1,8 @@
 import dispy, time, sys
 
-# argv: [password length]
+# argv: [jobs multiplier][password length]
+ip_nodes = open("nodes.txt","r").read().split(",")
+ip_nodes[len(ip_nodes)-1] = ip_nodes[len(ip_nodes)-1].rstrip("\n")
 
 def crackPassword (startPsw, stopPsw):
     import requests
@@ -10,7 +12,7 @@ def crackPassword (startPsw, stopPsw):
     return None
 
 def run (numJobs, pswLength):
-    cluster = dispy.JobCluster(crackPassword)
+    cluster = dispy.JobCluster(crackPassword,nodes = ip_nodes)
 
     unit = int((10**pswLength)/numJobs)+1
     jobs = []

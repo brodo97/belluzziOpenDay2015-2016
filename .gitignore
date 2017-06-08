@@ -1,3 +1,4 @@
+/cluster_engine/nodes.txt
 /cluster_engine/test.py
 /cluster_engine/psw.txt
 /cluster_engine/collatz/*
@@ -6,4 +7,3 @@
 /picluster_website/collatz/export.txt
 /picluster_website/dice/stats.txt
 /picluster_website/collatz/stats.txt
-/picluster_website/scripts/*

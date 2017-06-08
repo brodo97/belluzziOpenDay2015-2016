@@ -5,14 +5,15 @@ import dispy, random, time, sys
 global ip_master
 global ip_nodes_raw
 
-ip_master = "192.168.1.104"
-ip_nodes_raw = ["192.168.1.104"]
+ip_nodes = open("nodes.txt","r").read().split(",")
+ip_nodes[len(ip_nodes)-1] = ip_nodes[len(ip_nodes)-1].rstrip("\n")
 
 realPi = 3.14159265358
 
+
 def drop (n):
     cross = 0
-
+    import math
     for i in xrange(n):
         # x needle position
         x = random.random()*1000000
@@ -21,20 +22,12 @@ def drop (n):
 
         if int((x-d)/100) != int((x+d)/100):
             cross += 1
-        
+
     return cross
 
-def run (nNodes, nTimes, nThrows):
-    ip_nodes = []
+def run (nTimes, nThrows):
 
-    for i in range (nNodes):
-        ip_nodes.append(ip_nodes_raw[i])
-
-    cluster = dispy.JobCluster(
-        drop,
-        nodes = ip_nodes,
-        ip_addr = ip_master
-    )
+    cluster = dispy.JobCluster(drop,nodes = ip_nodes)
 
     jobs = []
 
@@ -46,23 +39,21 @@ def run (nNodes, nTimes, nThrows):
 
     prob = 0
     for j in jobs:
-        prob += j.result    
+        prob += j.result
 
-    pi = (2.0*int(sys.argv[2])*int(sys.argv[3]))/prob
+    pi = (2.0*int(sys.argv[1])*int(sys.argv[2]))/prob
 
-    return pi 
+    return pi
 
 if __name__ == "__main__":
 
     tStart = time.time()
 
-    calculatedPi = run(int(sys.argv[1]), int(sys.argv[2]), int(sys.argv[3]))
+    calculatedPi = run(int(sys.argv[1]), int(sys.argv[2]))
 
     tEnd = time.time() - tStart
 
     print "Computation real time: " + str(tEnd)[:5] + " sec\n"
-
-    print "Total Rolls: " + str(int(sys.argv[2]) * int(sys.argv[3]))
 
     print "Calculated PI: " + str(calculatedPi)
     print "Real PI:       " + str(realPi)

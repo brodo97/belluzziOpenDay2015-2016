@@ -4,6 +4,8 @@ import time
 import sys
 
 # argv: [how many tests][how many rolls]
+ip_nodes = open("nodes.txt","r").read().split(",")
+ip_nodes[len(ip_nodes)-1] = ip_nodes[len(ip_nodes)-1].rstrip("\n")
 
 def twoDiceRollSum (n):
     result = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
@@ -42,7 +44,7 @@ def writer(res, path):
 
 def run (nTimes, nThrows):
 
-    cluster = dispy.JobCluster(twoDiceRollSum)
+    cluster = dispy.JobCluster(twoDiceRollSum,nodes = ip_nodes)
 
     jobs = []
 
@@ -69,7 +71,5 @@ if __name__ == "__main__":
     tEnd = time.time() - tStart
 
     print "Computation real time: " + str(tEnd)[:5] + " sec"
-
-    print "Total Rolls: " + str(int(sys.argv[1]) * int(sys.argv[2]))
 
     writer(result, "dice/export.txt")

@@ -5,7 +5,7 @@ $footerText = "white-text";
 ?>
 <html>
 <head>
-	<title>Lancio dadi</title>
+	<title>Dice</title>
 	<!--Import Google Icon Font-->
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -70,6 +70,8 @@ $footerText = "white-text";
 	<main>
 		<div class="container">
 			<h2>Throw of two dices</h2>
+			<p class="flow-text">Not that much theorems. Just: throw two dices, sum their faces' value and repeat it millions of times.</p>
+
 			<div class="section">
 				<div class="card z-depth-4">
 					<div id="columnchart_values" class="card medium transparent z-depth-0"></div>
@@ -82,30 +84,23 @@ $footerText = "white-text";
 				<?php require_once '../phpMod/statsread.php' ?>
 				<h4>Data:</h4>
 				<div class="row">
-					<div class="col s6 m6 l3">
-						<p>Total throws: <?php echo $total_rolls ?></p>
-					</div>
-					<div class="col s6 m6 l3">
+					<div class="col s6 m6 l4 center">
 						<p>Real time execution: <?php echo $total_real_time ?></p>
 					</div>
-					<div class="col s6 m6 l3">
+					<div class="col s6 m6 l4 center">
 						<p>Single node time: <?php echo $total_job_time ?></p>
 					</div>
-					<div class="col s6 m6 l3">
-						<p>Saving: <?php echo $percentage ?>%</p>
+					<div class="col s12 m12 l4 center">
+						<p><b>Saving: <?php echo $percentage ?>%</b></p>
 					</div>
 				</div>
-			</div>
-
-			<div class="section center">
-				<a class="btn blue darken-3" href='stats.txt' target='_blank'>Statistiche complete</a>
 			</div>
 
 			<div class="section">
         <div class="card">
           <div class="card-content">
             <h4 class="card-title">Description</h4>
-            <p><a href="../dispy">Dispy </a>will assign a number of dices' throws.</p><br>
+            <p><a href="../dispy">dispy </a>will assign a number of dices' throws to each node in the pool.</p><br>
             <p>For each throw we'll get two random number, the possible faces of a dice, and we'll save the sum.</p><br>
             <p>For every number of throws we'll get the same graph shape. That's because the most central numbers can be found in more different ways.</p>
           </div>

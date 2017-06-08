@@ -3,7 +3,9 @@ import time
 import sys
 import ftplib
 
-# argv: [startRange][endRange]
+# argv: [jobs multiplier][start range][end range]
+ip_nodes = open("nodes.txt","r").read().split(",")
+ip_nodes[len(ip_nodes)-1] = ip_nodes[len(ip_nodes)-1].rstrip("\n")
 
 def count_collatz_iter(nStart, nEnd):
     partial = [0]*1000
@@ -19,7 +21,7 @@ def count_collatz_iter(nStart, nEnd):
     return partial
 
 def run (nNode, nStart, nEnd):
-    cluster = dispy.JobCluster(count_collatz_iter)
+    cluster = dispy.JobCluster(count_collatz_iter,nodes = ip_nodes)
 
     jobs = []
 

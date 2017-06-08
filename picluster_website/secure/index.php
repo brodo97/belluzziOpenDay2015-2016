@@ -80,8 +80,8 @@ if (isset($_POST["pwd"]) && $_POST["pwd"] != "") {
         <div class="card">
           <div class="card-content">
             <h4 class="card-title">Description</h4>
-            <p><a href="../dispy">Dispy </a>will assign to each node a range of password to work with.</p><br>
-            <p>For each password we'll receive a boolean valuee: <b>True </b>(Correct password), <b>False </b>(Wrong password)</p><br>
+            <p><a href="../dispy">dispy </a>will assign to each node a range of password to work with.</p><br>
+            <p>For each password we'll receive a boolean value: <b>True </b>(Correct password), <b>False </b>(Wrong password)</p><br>
             <p>At the end of the execution we'll find the only one possible password</p>
           </div>
         </div>
