@@ -24,12 +24,14 @@ def run (nNode, nStart, nEnd):
     cluster = dispy.JobCluster(count_collatz_iter,nodes = ip_nodes)
 
     jobs = []
+    last = 0
 
     step = (nEnd-nStart)/nNode
     jobs.append(cluster.submit(nStart,step))
     for i in xrange(1,nNode-1):
         jobs.append(cluster.submit(i*step,(i+1)*step))
-    jobs.append(cluster.submit((i+1)*step,nEnd))
+        last = i
+    jobs.append(cluster.submit((last+1)*step,nEnd))
 
     cluster.wait()
     cluster.stats()

@@ -1,24 +1,13 @@
 <?php
-global $color, $footerText;
+global $color, $footerText,$theme;
+$theme = "#2196f3";
 $color = "blue";
 $footerText = "white-text";
 ?>
 <html>
 <head>
 	<title>Dice</title>
-	<!--Import Google Icon Font-->
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-	<!--Import materialize.css-->
-	<link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
-
-	<!--Ottimizzato per la navigazione da mobile-->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-	<meta charset="UTF-16">
-
-	<!--Blocco dello zoom su mobile-->
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+	<?php require_once "../phpMod/headInit.php" ?>
 
 	<!--Libreria google per la realizzazione del grafico-->
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -80,30 +69,17 @@ $footerText = "white-text";
 
 			<div class="divider"></div>
 
-			<div class="section">
-				<?php require_once '../phpMod/statsread.php' ?>
-				<h4>Data:</h4>
-				<div class="row">
-					<div class="col s6 m6 l4 center">
-						<p>Real time execution: <?php echo $total_real_time ?></p>
-					</div>
-					<div class="col s6 m6 l4 center">
-						<p>Single node time: <?php echo $total_job_time ?></p>
-					</div>
-					<div class="col s12 m12 l4 center">
-						<p><b>Saving: <?php echo $percentage ?>%</b></p>
-					</div>
-				</div>
-			</div>
-
+			<?php require_once '../phpMod/statsread.php' ?>
+			
 			<div class="section">
         <div class="card">
           <div class="card-content">
             <h4 class="card-title">Description</h4>
             <p><a href="../dispy">dispy </a>will assign a number of dices' throws to each node in the pool.</p><br>
             <p>For each throw we'll get two random number, the possible faces of a dice, and we'll save the sum.</p><br>
-            <p>For every number of throws we'll get the same graph shape. That's because the most central numbers can be found in more different ways.</p>
-          </div>
+            <p>For every number of throws we'll get the same graph shape. That's because the most central numbers can be found in more different ways.</p><br>
+						<p><a href="https://github.com/brodo97/belluzziOpenDay2015-2016/blob/master/cluster_engine/clusterTwoDiceRollSum.py" target="_blank">Click here </a>to see how it works.</p>
+					</div>
         </div>
       </div>
 		</div>

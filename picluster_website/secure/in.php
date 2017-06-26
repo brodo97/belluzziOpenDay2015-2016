@@ -8,19 +8,9 @@ if(!isset($_SESSION["check"])){
 <html>
 <head>
   <title>Brute-Force</title>
-  <!--Import Google Icon Font-->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <?php require_once "../phpMod/headInit.php" ?>
 
-  <!--Import materialize.css-->
-  <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
-
-  <!--Ottimizzato per la navigazione da mobile-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-  <meta charset="UTF-16">
-
-  <!--Blocco dello zoom su mobile-->
-  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
 </head>
 <body class="grey lighten-3">
 

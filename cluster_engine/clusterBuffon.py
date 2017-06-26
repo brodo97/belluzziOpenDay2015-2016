@@ -2,14 +2,20 @@ import dispy, random, time, sys
 
 # argv: [how many nodes][how many tests][how many rolls]
 
-global ip_master
-global ip_nodes_raw
-
 ip_nodes = open("nodes.txt","r").read().split(",")
 ip_nodes[len(ip_nodes)-1] = ip_nodes[len(ip_nodes)-1].rstrip("\n")
 
-realPi = 3.14159265358
+realPi = "3.14159265358979323846264338327950288419716"
 
+def getDigit (pi):
+    pi = str(pi)[2:]
+    rPi = realPi[2:]
+    for i in xrange(len(realPi)):
+        try:
+            if pi[i] != rPi[i]:
+                return i
+        except Exception as e:
+            return i
 
 def drop (n):
     cross = 0
@@ -57,4 +63,4 @@ if __name__ == "__main__":
 
     print "Calculated PI: " + str(calculatedPi)
     print "Real PI:       " + str(realPi)
-    print "Difference:    " + str(abs(realPi-calculatedPi)) + "\n"
+    print "Digit:         " + str(getDigit(calculatedPi)) + "\n"

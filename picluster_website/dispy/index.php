@@ -1,5 +1,6 @@
 <?php
-global $color, $footerText;
+global $color, $footerText,$theme;
+$theme = "#2196f3";
 $color = "blue";
 $footerText = "white-text";
 include_once "../phpMod/geshi.php";
@@ -36,19 +37,7 @@ $runDispy = new GeSHi("$ dispynode.py -i YOUR_SERVER_IP", "bash");
 <html>
 <head>
   <title>Dispy</title>
-  <!--Import Google Icon Font-->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-  <!--Import materialize.css-->
-  <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
-
-  <!--Ottimizzato per la navigazione da mobile-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-  <meta charset="UTF-16">
-
-  <!--Blocco dello zoom su mobile-->
-  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+  <?php require_once "../phpMod/headInit.php" ?>
 
   <style media="screen">
   @media only screen and (max-width : 992px) {

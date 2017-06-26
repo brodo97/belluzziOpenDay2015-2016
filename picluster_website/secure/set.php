@@ -1,5 +1,6 @@
 <?php
-global $color, $footerText;
+global $color, $footerText,$theme;
+$theme = "#4caf50";
 $color = "green";
 $footerText = "white-text";
 $done = "";
@@ -16,19 +17,9 @@ if (isset($_POST["newPw"]) && $_POST["newPw"] != "") {
 <html>
 <head>
   <title>Brute-Force</title>
-  <!--Import Google Icon Font-->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-  <!--Import materialize.css-->
-  <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
+  <?php require_once "../phpMod/headInit.php" ?>
 
-  <!--Ottimizzato per la navigazione da mobile-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-  <meta charset="UTF-16">
-
-  <!--Blocco dello zoom su mobile-->
-  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
   <link rel="stylesheet" href="../css/logSigUp.css">
 </head>
 <body class="grey lighten-3">

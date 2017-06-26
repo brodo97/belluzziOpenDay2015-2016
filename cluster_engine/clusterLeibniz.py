@@ -25,8 +25,12 @@ def getDigit (pi):
     pi = str(pi)[2:]
     rPi = realPi[2:]
     for i in xrange(len(realPi)):
-        if pi[i] != rPi[i]:
+        try:
+            if pi[i] != rPi[i]:
+                return i
+        except Exception as e:
             return i
+
 
 def run (nTimes, nThrows):
 

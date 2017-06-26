@@ -18,11 +18,25 @@ if (file_exists("stats.txt")) {
 			$total_real_time = substr($line, 23);
 		}
 	}
-
 	fclose($file);
-}
+	
+	// formatting data:
+	$total_rolls = number_format((int)$total_rolls, 0, '', '\'');
+	$percentage = number_format(100-(floatval($total_real_time)/floatval($total_job_time)*100),1);
 
-// formatting data:
-$total_rolls = number_format((int)$total_rolls, 0, '', '\'');
-$percentage = number_format(100-(floatval($total_real_time)/floatval($total_job_time)*100),1);
+	echo "<div class='section'>
+		<h4>Last data:</h4>
+		<div class='row'>
+			<div class='col s6 m6 l4 center'>
+				<p>Real time execution: $total_real_time</p>
+			</div>
+			<div class='col s6 m6 l4 center'>
+				<p>Single node time: $total_job_time</p>
+			</div>
+			<div class='col s12 m12 l4 center'>
+				<p><b>Saving: $percentage%</b></p>
+			</div>
+		</div>
+	</div>";
+}
 ?>

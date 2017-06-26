@@ -1,5 +1,6 @@
 <?php
-global $color, $footerText;
+global $color, $footerText,$theme;
+$theme = "#f44336";
 $color = "red";
 $footerText = "white-text";
 include_once '../phpMod/geshi.php';
@@ -17,19 +18,8 @@ $geshi = new GeSHi($source, "python");
 <html>
 <head>
   <title>Collatz</title>
-  <!--Import Google Icon Font-->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-  <!--Import materialize.css-->
-  <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
-
-  <!--Ottimizzato per la navigazione da mobile-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-  <meta charset="UTF-16">
-
-  <!--Blocco dello zoom su mobile-->
-  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+  <?php require_once "../phpMod/headInit.php" ?>
 
   <!--Libreria google per la realizzazione del grafico-->
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -106,7 +96,8 @@ $geshi = new GeSHi($source, "python");
       <div class="section">
         <ul class="collapsible" data-collapsible="accordion">
           <li>
-            <div id="example" class="collapsible-header"><i class="material-icons">new_releases</i>Iterations' count for any number: n</div>
+            <div id="example" class="collapsible-header"><i class="material-icons">code
+            </i>Iterations' count for any number: n</div>
             <div class="collapsible-body white">
               <div class="row">
                 <div class="col s12 m8 l6">
@@ -127,7 +118,8 @@ $geshi = new GeSHi($source, "python");
             <h4 class="card-title">Description</h4>
             <p><a href="../dispy">dispy </a>will assign to each node a range of numbers to work with.</p><br>
             <p>Each node, for each number of the range, will calculate the number of iterations to reach 1. <a href="#example" onclick="document.getElementById('example').click()">An example here</a></p><br>
-            <p>The graph shows the number of iterations (X) and the frequency of each of them (Y).</p>
+            <p>The graph shows the number of iterations (X) and the frequency of each of them (Y).</p><br>
+            <p><a href="https://github.com/brodo97/belluzziOpenDay2015-2016/blob/master/cluster_engine/clusterCollatz.py" target="_blank">Click here </a>to see how it works.</p>
           </div>
         </div>
       </div>

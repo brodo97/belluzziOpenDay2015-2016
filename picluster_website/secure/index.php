@@ -1,5 +1,6 @@
 <?php
-global $color, $footerText;
+global $color, $footerText,$theme;
+$theme = "#4caf50";
 $color = "green";
 $footerText = "white-text";
 if (isset($_POST["pwd"]) && $_POST["pwd"] != "") {
@@ -22,19 +23,9 @@ if (isset($_POST["pwd"]) && $_POST["pwd"] != "") {
 <html>
 <head>
   <title>Brute-Force</title>
-  <!--Import Google Icon Font-->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-  <!--Import materialize.css-->
-  <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
+  <?php require_once "../phpMod/headInit.php" ?>
 
-  <!--Ottimizzato per la navigazione da mobile-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-  <meta charset="UTF-16">
-
-  <!--Blocco dello zoom su mobile-->
-  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
   <link rel="stylesheet" href="../css/logSigUp.css">
 </head>
 <body class="grey lighten-3">
@@ -82,7 +73,8 @@ if (isset($_POST["pwd"]) && $_POST["pwd"] != "") {
             <h4 class="card-title">Description</h4>
             <p><a href="../dispy">dispy </a>will assign to each node a range of password to work with.</p><br>
             <p>For each password we'll receive a boolean value: <b>True </b>(Correct password), <b>False </b>(Wrong password)</p><br>
-            <p>At the end of the execution we'll find the only one possible password</p>
+            <p>At the end of the execution we'll find the only one possible password</p><br>
+            <p><a href="https://github.com/brodo97/belluzziOpenDay2015-2016/blob/master/cluster_engine/clusterPassword.py" target="_blank">Click here </a>to see how it works.</p>
           </div>
         </div>
       </div>

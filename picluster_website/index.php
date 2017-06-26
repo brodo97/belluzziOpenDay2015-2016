@@ -1,5 +1,6 @@
 <?php
-global $color, $footerText;
+global $color, $footerText,$theme;
+$theme = "#3f51b5";
 $color = "indigo";
 $footerText = "white-text";
 ?>
@@ -12,13 +13,20 @@ $footerText = "white-text";
 	<!--Import materialize.css-->
 	<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
 
+	<!--Favicon-->
+	<link rel='icon' href='../img/favicon.png' />
+
 	<!--Ottimizzato per la navigazione da mobile-->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-	<meta charset="UTF-16">
+	<meta charset="UTF-8">
 
 	<!--Blocco dello zoom su mobile-->
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+
+	<!--Descrizione-->
+	<meta name='description' content='Raspberry Pi Cluster using dispy. How to install and how to use, examples and front-end data processing.'>
+
 	<style media="screen">
 	.tabs .indicator{
 		background-color: #F0F;

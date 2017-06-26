@@ -17,13 +17,9 @@ def run (numJobs, pswLength):
     unit = int((10**pswLength)/numJobs)+1
     jobs = []
 
-    jobs.append(cluster.submit(1,unit))
-    print 1,"-",unit
-    for i in xrange(1,numJobs-1):
+    for i in xrange(0,numJobs):
         print i*unit,"-",(i+1)*unit
         jobs.append(cluster.submit(i*unit,(i+1)*unit))
-    jobs.append(cluster.submit((i+1)*unit,10**pswLength))
-    print (i+1)*unit,"-",10**pswLength
 
     cluster.wait()
     cluster.stats()
