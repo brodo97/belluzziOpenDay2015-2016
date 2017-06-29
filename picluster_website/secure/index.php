@@ -67,6 +67,9 @@ if (isset($_POST["pwd"]) && $_POST["pwd"] != "") {
       </div>
     </div>
     <div class="container">
+
+      <?php require_once '../phpMod/statsread.php' ?>
+
       <div class="section">
         <div class="card">
           <div class="card-content">

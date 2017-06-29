@@ -112,6 +112,8 @@ $geshi = new GeSHi($source, "python");
         </ul>
       </div>
 
+      <?php require_once '../phpMod/statsread.php' ?>
+
       <div class="section">
         <div class="card">
           <div class="card-content">

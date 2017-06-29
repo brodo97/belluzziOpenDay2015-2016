@@ -86,6 +86,8 @@ $geshi = new GeSHi($source, "python");
         </div>
       </div>
 
+      <?php require_once '../phpMod/statsread.php' ?>
+
       <!--Description-->
       <div class="section">
         <div class="card">
